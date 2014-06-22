@@ -8,11 +8,19 @@
     <title>Cameron Pittman: Portfolio</title>
 
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/print.css" rel="stylesheet" media="print">
-    <link href="css/style-mobile.css" rel="stylesheet" media="screen and (max-width:480px)">
+    <!--<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">-->
+    
+    <script>
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'http://fonts.googleapis.com/css?family=Open+Sans:400,700';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
 
     <script>
       (function(w,g){w['GoogleAnalyticsObject']=g;
@@ -22,6 +30,12 @@
       ga('create', 'UA-XXXX-Y');
       ga('send', 'pageview');
     </script>
+    
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/print.css" rel="stylesheet" media="print">
+    <link href="css/style-mobile.css" rel="stylesheet" media="screen and (max-width:480px)">
+
+    
     <script async src="http://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.js"></script>
   </head>
